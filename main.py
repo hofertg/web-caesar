@@ -37,7 +37,7 @@ class MainHandler(webapp2.RequestHandler):
     def post(self):
         message = self.request.get("text")
         str_rotation = self.request.get("rotation")
-        if str_rotation.isdigit():
+        if str_rotation.isdigit() or (len(str_rotation) > 1 and str_rotation[0] == "-" and str_rotation[1:].isdigit()):
             rotation = int(str_rotation)
         else:
             rotation = 13
